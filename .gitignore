@@ -1,0 +1,12 @@
+*.class
+*.log
+**/.DS_Store
+
+target/
+.history
+.cache
+.lib/
+.idea
+project
+
+out*
