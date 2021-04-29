@@ -6,7 +6,6 @@ target/
 .history
 .cache
 .lib/
-.idea
 project
 
 out*
