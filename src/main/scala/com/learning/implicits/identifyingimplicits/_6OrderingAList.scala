@@ -4,10 +4,23 @@ case class Team(city:String, mascot:String)
 
 //Create two choices to sort by, city and mascot
 object MyPredef3 {
-  implicit val teamsSortedByCity: Ordering[Team] =
+  // Below used in 2.11
+  implicit val teamsSortedByCity: Ordering[Team] = new Ordering[Team] {
+    override def compare(x: Team, y: Team) = x.city compare y.city
+  }
+
+  implicit val teamsSortedByMascot: Ordering[Team] = new Ordering[Team] {
+    override def compare(x: Team, y: Team) = x.mascot compare y.mascot
+  }
+
+  /*
+     Below used in 2.12
+     implicit val teamsSortedByCity: Ordering[Team] =
     (x: Team, y: Team) => x.city compare y.city
-  implicit val teamsSortedByMascot: Ordering[Team] =
+     implicit val teamsSortedByMascot: Ordering[Team] =
     (x: Team, y: Team) => x.mascot compare y.mascot
+
+   */
 }
 
 object _6OrderingAList extends App {
